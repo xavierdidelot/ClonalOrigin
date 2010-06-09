@@ -2,12 +2,8 @@
 
 = Introduction =
 
-bla bla bla
+This is the homepage of ClonalOrigin, a computer package for the inference of homologous recombination in bacteria using whole genome sequences.
 
+= Current status =
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+ClonalOrigin will be available soon, watch this space!
