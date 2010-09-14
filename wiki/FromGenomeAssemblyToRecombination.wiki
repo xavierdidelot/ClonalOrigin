@@ -1,0 +1,83 @@
+#summary An example on how to apply ClonalOrigin, starting with unaligned genome data
+
+= Introduction =
+
+This example will demonstrate how to go from unaligned genome assemblies to aligned genomes with recombination maps ready for further analysis and summary.
+
+= Prerequisites =
+Throughout this example we will assume a familiarity and level of comfort with command-line software.  If that doesn't sound like you, it may be worth tapping a local nerd for assistance.
+
+Required data:
+  * Genome sequences in FastA or GenBank format, we'll assume 4 genomes for this example in files called genome1.gbk, genome2.gbk, genome3.gbk, and genome4.gbk
+    
+Required software:
+  * progressiveMauve - http://gel.ahabs.wisc.edu/mauve/snapshots
+  * stripSubsetLCBs, available from other programs link at - http://gel.ahabs.wisc.edu/mauve/snapshots
+  * addUnalignedIntervals, also from http://gel.ahabs.wisc.edu/mauve/snapshots
+  * ClonalFrame, from 
+  * ClonalOrigin, from 
+
+The above programs need to be downloaded, uncompressed, made executable, and installed to a directory in the binary PATH for your system.
+
+= The Analysis =
+== Genome alignment ==
+Starting in the directory where the data resides:
+
+{{{
+progressiveMauve --output=full_alignment.xmfa genome1.gbk genome2.gbk genome3.gbk genome4.gbk
+
+stripSubsetLCBs full_alignment.xmfa full_alignment.xmfa.bbcols core_alignment.xmfa 500
+
+}}}
+
+The first command constructs a multiple genome alignment of the four genomes.  The second command strips out variable regions from the alignment to leave only core alignment blocks longer than 500nt.
+
+== Infer clonal genealogy ==
+{{{
+ClonalFrame -x 10000 -y 10000 -z 10 core_alignment.xmfa core_clonalframe.out.1 > cf_stdout.1 &
+ClonalFrame -x 10000 -y 10000 -z 10 core_alignment.xmfa core_clonalframe.out.2 > cf_stdout.2 &
+ClonalFrame -x 10000 -y 10000 -z 10 core_alignment.xmfa core_clonalframe.out.3 > cf_stdout.3 &
+}}}
+
+The above commands start three separate ClonalFrame runs in parallel on the core genome alignment in order to infer the clonal genealogy.  The output from these three runs needs to be compared to ensure that each of the runs produced approximately the same tree.  If not, the MCMC chain needs to run longer, and the runs should be started again with a higher value for the -y parameter.
+
+== Convert clonal genealogy to ClonalOrigin format ==
+
+A fully resolved consensus tree from ClonalFrame must be extracted and the taxa renumbered to start at 0 instead of 1.
+
+== Split alignment into one file per block ==
+
+== Run ClonalOrigin on each alignment block ==
+{{{
+warg -a 1,1,0.1,1,1,1,1,1,0,0,0 -x 1000000 -y 1000000 -z 10000 clonaltree.nwk core_alignment.xmfa.N core_co.phase2.N.xml
+}}}
+
+Where this command must be run once on each of the alignment blocks, and N should be replaced with the block number.  Farming these jobs out on a compute cluster is highly recommended.
+
+== Get estimates of population evolution parameters ==
+
+In the previous step, the global evolutionary parameters theta, rho, and delta have been estimated independently on each block.  This step computes the posterior median values for those parameters, weighted by the size of each block.
+
+{{{
+computeMedians.pl *.xml
+}}}
+
+== Run ClonalOrigin with global parameters ==
+
+{{{
+ClonalOrigin -x 1000000 -y 20000000 -z 200000 -D 123456 -T s7890 -R s66666 clonaltree.nwk core_alignment.xmfa.N core_co.phase3.N.xml
+}}}
+
+Again, this command must be run at least once for each block, and N needs to be replaced with the block number.  Also, the values 123456, 7890, and 66666 must be replaced with the global parameter estimates for Delta, Theta, and Rho from the previous step.
+
+== Create a recombination map viewable in Mauve ==
+
+{{{
+addUnalignedIntervals core_alignment.xmfa core_alignment_mauveable.xmfa
+
+makeMauveWargFile.pl *phase3*.bz2 
+}}}
+
+== Run the Mauve GUI and profit! ==
+
+Once Mauve is running, open the alignment file "core_alignment_mauveable.xmfa" then load the recombination map by typing Control-R and selecting the .mauveConcat.bz2 file that was generated in the previous step.  The GUI will run for several minutes to hours summarizing the recombination probability map before eventually displaying it.
