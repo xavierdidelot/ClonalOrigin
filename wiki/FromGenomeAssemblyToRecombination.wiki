@@ -5,7 +5,7 @@
 This example will demonstrate how to go from unaligned genome assemblies to aligned genomes with recombination maps ready for further analysis and summary.
 
 = Prerequisites =
-Throughout this example we will assume a familiarity and level of comfort with command-line software.  If that doesn't sound like you, it may be worth tapping a local nerd for assistance.
+Throughout this example we will assume a familiarity and level of comfort with command-line software.  If that doesn't sound like you, it may be worth tapping your local nerd for assistance.  Buy him a large coffee, and expect the whole process to take a couple weeks of compute time.
 
 Required data:
   * Genome sequences in FastA or GenBank format, we'll assume 4 genomes for this example in files called genome1.gbk, genome2.gbk, genome3.gbk, and genome4.gbk
