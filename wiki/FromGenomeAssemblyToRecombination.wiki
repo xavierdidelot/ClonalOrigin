@@ -81,3 +81,18 @@ makeMauveWargFile.pl *phase3*.bz2
 == Run the Mauve GUI and profit! ==
 
 Once Mauve is running, open the alignment file "core_alignment_mauveable.xmfa" then load the recombination map by typing Control-R and selecting the .mauveConcat.bz2 file that was generated in the previous step.  The GUI will run for several minutes to hours summarizing the recombination probability map before eventually displaying it.
+
+= What next? =
+
+You will need to invent creative ways to summarize and make inference from the recombination maps.  Possibilities are endless.
+
+Of course you will eventually write a paper, and probably publish it in a respectable open-access journal.  When you do, be sure to cite the following tools that facilitated your analysis:
+
+Darling AE, Mau B, Perna NT (2010) progressiveMauve: Multiple Genome Alignment with Gene Gain, Loss and Rearrangement. PLoS ONE 5(6): e11147
+http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0011147
+
+ClonalFrame paper 
+
+ClonalOrigin paper
+
+Original Mauve paper.
