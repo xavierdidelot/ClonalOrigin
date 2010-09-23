@@ -4,7 +4,7 @@
 
   * Subversion, from http://subversion.tigris.org
   * GNU Scientific Library
-  * Optional: KDE development libraries, needed for graphical interface
+  * Optional: Qt4 development libraries, needed for graphical interface
 
 == Step 1. Check out the ClonalOrigin source code ==
 
