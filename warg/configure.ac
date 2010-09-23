@@ -33,8 +33,12 @@ fi
 
 
 # Checks for programs.
-AC_PROG_CXX($MPICXX)
-AC_PROG_CC($MPICC)
+# the following two lines look for MPI compilers
+# AC_PROG_CXX($MPICXX)
+# AC_PROG_CC($MPICC)
+# the next two lines look for standard compilers
+AC_PROG_CXX
+AC_PROG_CC
 
 # warn the user if MPI wasn't found
 if( test "x$MPIdir" = "x" && test ! "x$CXX" = "xmpicxx" && test ! "x$CXX" = "xmpic++" && test ! "x$CXX" = "xmpiCC" && test ! "x$CXX" = "xmpCC" ) then
