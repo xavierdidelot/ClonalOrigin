@@ -16,7 +16,7 @@ svn checkout http://clonalorigin.googlecode.com/svn/trunk/ clonalorigin
 
 We'll assume you want to install to your home directory.
 {{{
-cd clonalorigin
+cd clonalorigin/warg
 ./autogen.sh
 ./configure --prefix=$HOME
 }}}
