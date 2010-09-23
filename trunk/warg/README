@@ -1,0 +1,13 @@
+If you have checked this code out of subversion, first run ./autogen.sh
+To build the code, run:
+
+./configure
+make
+
+And optionally:
+make install
+
+To build a fully optimized version of the warg code, run:
+make profile
+
+Please see the project web site for further information.
