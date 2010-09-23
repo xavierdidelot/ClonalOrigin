@@ -30,8 +30,12 @@ make install
 
 == Optional Step 4. Build and install the graphical interface  ==
 
+Forthcoming.
+
+----
+
 == Using ClonalOrigin  ==
 
 ClonalOrigin has now been installed to the directory $HOME/bin, as a program called 'warg'.  The name is shorthand for 'weak Ancestral Recombination Graph', a diminutive term for the probabilistic graphical model on which ClonalOrigin does inference.  If $HOME/bin is not already part of your PATH environment variable now would be a good time to add it.  Once done, the ClonalOrigin software can be run simply by typing 'warg'.  Note that if the GNU Scientific Library was installed to a non-standard location, it may be able to add the path to the directory containing libgsl to the environment variable LD_LIBRARY_PATH (on Linux) or DYLD_LIBRARY_PATH (on Mac OS X).
 
-Further instructions about getting data into and out of ClonalOrigin are on this wiki page:  http://code.google.com/p/clonalorigin/wiki/FromGenomeAssemblyToRecombination 
+Further instructions about getting data into and out of ClonalOrigin are on this wiki page:  FromGenomeAssemblyToRecombination 
