@@ -1,0 +1,173 @@
+<ui version="4.0" >
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>414</width>
+    <height>376</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Setup coloured plot</string>
+  </property>
+  <widget class="QDialogButtonBox" name="buttonBox" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>330</y>
+     <width>382</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="standardButtons" >
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::NoButton|QDialogButtonBox::Ok</set>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listWidget" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>40</y>
+     <width>296</width>
+     <height>182</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>361</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Double-click nodes on the tree to add groups.</string>
+   </property>
+  </widget>  
+  <widget class="QWidget" name="layoutWidget" >
+   <property name="geometry" >
+    <rect>
+     <x>311</x>
+     <y>80</y>
+     <width>82</width>
+     <height>124</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" >
+    <item row="0" column="0" >
+     <widget class="QPushButton" name="moveUp" >
+      <property name="text" >
+       <string>Move up</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" >
+     <widget class="QPushButton" name="moveDown" >
+      <property name="text" >
+       <string>Move down</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" >
+     <widget class="QPushButton" name="remove" >
+      <property name="text" >
+       <string>Remove</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0" >
+     <widget class="QPushButton" name="colour" >
+      <property name="text" >
+       <string>Colour...</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="" >
+   <property name="geometry" >
+    <rect>
+     <x>40</x>
+     <y>240</y>
+     <width>311</width>
+     <height>74</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" >
+    <item row="0" column="0" >
+     <widget class="QLabel" name="label_2" >
+      <property name="text" >
+       <string>Show density of:</string>
+      </property>
+     </widget>
+    </item>
+    <item rowspan="3" row="0" column="1" >
+     <widget class="Line" name="line" >
+      <property name="orientation" >
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2" >
+     <widget class="QLabel" name="label_3" >
+      <property name="text" >
+       <string>Coloured according to:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" >
+     <widget class="QRadioButton" name="denArr" >
+      <property name="text" >
+       <string>Arrival</string>
+      </property>
+      <property name="checked" >
+       <bool>true</bool>
+      </property>
+      <property name="autoExclusive" >
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2" >
+     <widget class="QRadioButton" name="colArr" >
+      <property name="text" >
+       <string>Arrival</string>
+      </property>
+      <property name="autoExclusive" >
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" >
+     <widget class="QRadioButton" name="denDep" >
+      <property name="text" >
+       <string>Departure</string>
+      </property>
+      <property name="autoExclusive" >
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2" >
+     <widget class="QRadioButton" name="colDep" >
+      <property name="text" >
+       <string>Departure</string>
+      </property>
+      <property name="checked" >
+       <bool>true</bool>
+      </property>
+      <property name="autoExclusive" >
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
