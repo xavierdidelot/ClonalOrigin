@@ -1,0 +1,944 @@
+<ui version="4.0" >
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>598</width>
+    <height>388</height>
+   </rect>
+  </property>
+  <property name="palette" >
+   <palette>
+    <active>
+     <colorrole role="Base" >
+      <brush brushstyle="SolidPattern" >
+       <color alpha="255" >
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window" >
+      <brush brushstyle="SolidPattern" >
+       <color alpha="255" >
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="Base" >
+      <brush brushstyle="SolidPattern" >
+       <color alpha="255" >
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window" >
+      <brush brushstyle="SolidPattern" >
+       <color alpha="255" >
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="Base" >
+      <brush brushstyle="SolidPattern" >
+       <color alpha="255" >
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window" >
+      <brush brushstyle="SolidPattern" >
+       <color alpha="255" >
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
+  </property>
+  <property name="windowTitle" >
+   <string>weakarg-gui</string>
+  </property>
+  <widget class="QWidget" name="centralwidget" />
+  <widget class="QMenuBar" name="menubar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>598</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuLoad_tree" >
+    <property name="title" >
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionOpen_output_file" />
+    <addaction name="actionCombine_output_files" />
+    <addaction name="actionExtractIterations" />
+    <addaction name="actionThinIterations" />
+    <addaction name="actionReOpen_output_file" />
+    <addaction name="separator" />
+    <addaction name="actionSave_tree_to_Newick_file" />
+    <addaction name="actionSave_trees_to_Nexus_file" />
+    <addaction name="actionShowComment" />
+    <widget class="QMenu" name="changeNameFormat" >
+	    <property name="title" >
+		    <string>&amp;Change Name Format</string>
+	    </property>
+	    <addaction name="actionNameFormatm1" />
+	    <addaction name="actionNameFormat0" />
+	    <addaction name="actionNameFormat1" />
+	    <addaction name="actionNameFormat2" />
+   </widget>
+   <addaction name="changeNameFormat" />
+    <addaction name="separator" />
+    <addaction name="actionExit" />
+   </widget>
+   <widget class="QMenu" name="menuVisualisation" >
+    <property name="title" >
+     <string>&amp;Visualisation</string>
+    </property>
+    <widget class="QMenu" name="menuShow" >
+     <property name="title" >
+      <string>Show events for...</string>
+     </property>
+     <addaction name="actionAll_genes" />
+     <addaction name="actionOnly_one_gene" />
+    </widget>
+    <addaction name="actionFirst_iteration" />
+    <addaction name="actionNext_iteration" />
+    <addaction name="separator" />
+    <addaction name="actionTime_scale_up" />
+    <addaction name="actionTime_scale_down" />
+    <addaction name="separator" />
+    <addaction name="menuShow" />
+    <addaction name="separator" />
+    <addaction name="actionDeparture_arrival_density" />
+    <addaction name="actionRelative_Departure_Arrival_density" />
+    <addaction name="actionColour_density_plot" />
+    <addaction name="actionChange_scale" />
+    <addaction name="separator" />
+    <addaction name="actionHeat_map" />
+    <addaction name="actionPd_map" />
+    <addaction name="actionPheat_map_rel" />
+    <addaction name="actionPheat_map" />
+    <addaction name="separator" />
+    <addaction name="actionMajority_rule_consensus_of_trees" />
+    <addaction name="actionExtended_consensus_of_trees" />
+    <addaction name="separator" />
+    <addaction name="actionSave_picture" />
+    <addaction name="actionSave_movie" />
+    <addaction name="separator" />
+    <addaction name="actionToggleView" />
+    <addaction name="actionShowCF" />
+   </widget>
+   <widget class="QMenu" name="menuAnalysis" >
+    <property name="title" >
+     <string>&amp;Analysis</string>
+    </property>
+    <addaction name="actionGelman_Rubin_test" />
+    <addaction name="actionTest_convergence_of_trees" />
+    <addaction name="actionScore_against_true_tree" />
+    <addaction name="separator" />
+    <addaction name="actionExport_as_Tracer_file" />
+    <addaction name="actionExport_in_CSV_format" />
+   </widget>
+   <widget class="QMenu" name="menuHelp" >
+    <property name="title" >
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionHelp_contents" />
+    <addaction name="actionAbout" />
+   </widget>
+   <widget class="QMenu" name="menuPlot" >
+    <property name="title" >
+     <string>&amp;Graph</string>
+    </property>
+    <widget class="QMenu" name="menuNumber_of_CP_in_rp" >
+     <property name="title" >
+      <string>Theta</string>
+     </property>
+     <addaction name="action11" />
+     <addaction name="action12" />
+    </widget>
+    <widget class="QMenu" name="menuNumber_of_CP_in_rm" >
+     <property name="title" >
+      <string>Rho</string>
+     </property>
+     <addaction name="action21" />
+     <addaction name="action22" />
+    </widget>
+    <widget class="QMenu" name="menuTop_value_for_rp" >
+     <property name="title" >
+      <string>Delta</string>
+     </property>
+     <addaction name="action31" />
+     <addaction name="action32" />
+    </widget>
+    <widget class="QMenu" name="menuTop_value_for_rm" >
+     <property name="title" >
+      <string>Number of recedges</string>
+     </property>
+     <addaction name="action41" />
+     <addaction name="action42" />
+    </widget>
+    <widget class="QMenu" name="menuLog_likelihood" >
+     <property name="title" >
+      <string>Log-likelihood</string>
+     </property>
+     <addaction name="action51" />
+     <addaction name="action52" />
+    </widget>
+    <widget class="QMenu" name="menuDistribution_along_the_genome" >
+     <property name="title" >
+      <string>Distribution along the genome</string>
+     </property>
+     <addaction name="actionRecombination" />
+     <addaction name="actionStarting_points" />
+     <addaction name="actionEnding_points" />
+     <addaction name="actionRelRecombination" />
+    </widget>
+    <widget class="QMenu" name="menuRho_Theta" >
+     <property name="title" >
+      <string>Rho/Theta</string>
+     </property>
+     <addaction name="action61" />
+     <addaction name="action62" />
+    </widget>
+    <widget class="QMenu" name="menuR_m" >
+     <property name="title" >
+      <string>r/m</string>
+     </property>
+     <addaction name="action71" />
+     <addaction name="action72" />
+    </widget>
+    <widget class="QMenu" name="menuTMRCA" >
+     <property name="title" >
+      <string>TMRCA</string>
+     </property>
+     <addaction name="action81" />
+     <addaction name="action82" />
+    </widget>
+    <widget class="QMenu" name="menuSum_of_branch_lengths" >
+     <property name="title" >
+      <string>Sum of branch lengths</string>
+     </property>
+     <addaction name="action91" />
+     <addaction name="action92" />
+    </widget>
+    <widget class="QMenu" name="menuLog_prior" >
+     <property name="title" >
+      <string>Log-prior</string>
+     </property>
+     <addaction name="actionA1" />
+     <addaction name="actionA2" />
+    </widget>
+    <widget class="QMenu" name="menuLog_posterior" >
+     <property name="title" >
+      <string>Log-posterior</string>
+     </property>
+     <addaction name="actionB1" />
+     <addaction name="actionB2" />
+    </widget>
+    <widget class="QMenu" name="menuTheta_per_site" >
+     <property name="title" >
+      <string>Theta per site</string>
+     </property>
+     <addaction name="actionC1" />
+     <addaction name="actionC2" />
+    </widget>
+    <widget class="QMenu" name="menuRho_per_site" >
+     <property name="title" >
+      <string>Rho per site</string>
+     </property>
+     <addaction name="actionD1" />
+     <addaction name="actionD2" />
+    </widget>
+    <addaction name="menuNumber_of_CP_in_rp" />
+    <addaction name="menuNumber_of_CP_in_rm" />
+    <addaction name="menuTop_value_for_rp" />
+    <addaction name="separator" />
+    <addaction name="menuTMRCA" />
+    <addaction name="menuSum_of_branch_lengths" />
+    <addaction name="menuTop_value_for_rm" />
+    <addaction name="separator" />
+    <addaction name="menuLog_likelihood" />
+    <addaction name="menuLog_prior" />
+    <addaction name="menuLog_posterior" />
+    <addaction name="separator" />
+    <addaction name="menuRho_Theta" />
+    <addaction name="menuR_m" />
+    <addaction name="menuTheta_per_site" />
+    <addaction name="menuRho_per_site" />
+    <addaction name="separator" />
+    <addaction name="menuDistribution_along_the_genome" />
+   </widget>
+   <widget class="QMenu" name="menuOLD" >
+    <property name="title" >
+     <string>Explorer</string>
+    </property>
+    <addaction name="actionMajority_rule_Consensus" />
+    <addaction name="actionCompute_prior_corrected" />
+    <addaction name="separator" />
+    <addaction name="actionSet_cutoff" />
+    <addaction name="actionJump_to_site" />
+    <addaction name="separator" />
+    <addaction name="actionNext_site" />
+    <addaction name="actionPrev_site" />
+    <addaction name="separator" />
+    <addaction name="actionExport_movie" />
+    <addaction name="actionExport_CSV" />
+    <addaction name="actionExport_to_Artemis" />
+   </widget>
+   <addaction name="menuLoad_tree" />
+   <addaction name="menuAnalysis" />
+   <addaction name="menuVisualisation" />
+   <addaction name="menuPlot" />
+   <addaction name="menuOLD" />
+   <addaction name="menuHelp" />
+  </widget>
+  <widget class="QStatusBar" name="statusbar" />
+  <action name="actionLoad_tree" >
+   <property name="text" >
+    <string>Load tree...</string>
+   </property>
+  </action>
+  <action name="actionLoad_binary_data" >
+   <property name="text" >
+    <string>Load data...</string>
+   </property>
+  </action>
+  <action name="actionRun_algorithm" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Run MCMC...</string>
+   </property>
+  </action>
+  <action name="actionAbout" >
+   <property name="text" >
+    <string>About...</string>
+   </property>
+  </action>
+  <action name="actionLoad_example_data" >
+   <property name="text" >
+    <string>Load example data</string>
+   </property>
+  </action>
+  <action name="actionNext_iteration" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Next iteration</string>
+   </property>
+   <property name="shortcut" >
+    <string>Right</string>
+   </property>
+   <property name="shortcutContext" >
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+  <action name="actionPrevious_iteration" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Previous iteration</string>
+   </property>
+   <property name="shortcut" >
+    <string>&lt;</string>
+   </property>
+   <property name="shortcutContext" >
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+  <action name="actionReOpen_output_file" >
+   <property name="text" >
+    <string>Reopen output file</string>
+   </property>
+  </action>
+  <action name="actionOpen_output_file" >
+   <property name="text" >
+    <string>Open output file...</string>
+   </property>
+  </action>
+  <action name="actionSave_output_file" >
+   <property name="text" >
+    <string>Save output file...</string>
+   </property>
+  </action>
+  <action name="actionExit" >
+   <property name="text" >
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionShowComment" >
+   <property name="text" >
+    <string>Show Comment</string>
+   </property>
+  </action>
+  <action name="actionSave_picture" >
+   <property name="text" >
+    <string>Save picture...</string>
+   </property>
+  </action>
+  <action name="actionConsensus" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Strict Consensus</string>
+   </property>
+  </action>
+  <action name="actionFirst_iteration" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>First iteration</string>
+   </property>
+   <property name="shortcut" >
+    <string>Home</string>
+   </property>
+  </action>
+  <action name="actionLast_iteration" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Last iteration</string>
+   </property>
+  </action>
+  <action name="actionSimulate_tree" >
+   <property name="text" >
+    <string>Simulate tree...</string>
+   </property>
+  </action>
+  <action name="actionSimulate_data" >
+   <property name="text" >
+    <string>Simulate data...</string>
+   </property>
+  </action>
+  <action name="actionSave_current" >
+   <property name="text" >
+    <string>Save current state...</string>
+   </property>
+  </action>
+  <action name="actionSave_tree" >
+   <property name="text" >
+    <string>Save tree...</string>
+   </property>
+  </action>
+  <action name="actionSave_binary_data" >
+   <property name="text" >
+    <string>Save data...</string>
+   </property>
+  </action>
+  <action name="actionHelp_contents" >
+   <property name="text" >
+    <string>Help contents...</string>
+   </property>
+  </action>
+  <action name="actionEdit_list_of_moves" >
+   <property name="text" >
+    <string>Edit list of moves...</string>
+   </property>
+  </action>
+  <action name="actionGelman_Rubin_test" >
+   <property name="text" >
+    <string>Gelman-Rubin test...</string>
+   </property>
+  </action>
+  <action name="actionEdit_priors" >
+   <property name="text" >
+    <string>Edit priors...</string>
+   </property>
+  </action>
+  <action name="actionLoad_names" >
+   <property name="text" >
+    <string>Load names...</string>
+   </property>
+  </action>
+  <action name="actionSet_initial_values" >
+   <property name="text" >
+    <string>Set initial values...</string>
+   </property>
+  </action>
+  <action name="actionPower_study" >
+   <property name="text" >
+    <string>Power study...</string>
+   </property>
+  </action>
+  <action name="action11" >
+   <property name="text" >
+    <string>Trajectory</string>
+   </property>
+  </action>
+  <action name="action12" >
+   <property name="text" >
+    <string>Histogram</string>
+   </property>
+  </action>
+  <action name="action21" >
+   <property name="text" >
+    <string>Trajectory</string>
+   </property>
+  </action>
+  <action name="action22" >
+   <property name="text" >
+    <string>Histogram</string>
+   </property>
+  </action>
+  <action name="action31" >
+   <property name="text" >
+    <string>Trajectory</string>
+   </property>
+  </action>
+  <action name="action32" >
+   <property name="text" >
+    <string>Histogram</string>
+   </property>
+  </action>
+  <action name="action41" >
+   <property name="text" >
+    <string>Trajectory</string>
+   </property>
+  </action>
+  <action name="action42" >
+   <property name="text" >
+    <string>Histogram</string>
+   </property>
+  </action>
+  <action name="action51" >
+   <property name="text" >
+    <string>Trajectory</string>
+   </property>
+  </action>
+  <action name="action52" >
+   <property name="text" >
+    <string>Histogram</string>
+   </property>
+  </action>
+  <action name="actionReinitiate_random_generator" >
+   <property name="text" >
+    <string>Reinitiate random generator...</string>
+   </property>
+  </action>
+  <action name="actionAncestral_states" >
+   <property name="text" >
+    <string>Ancestral states...</string>
+   </property>
+  </action>
+  <action name="actionCombine_output_files" >
+   <property name="text" >
+    <string>Combine output files...</string>
+   </property>
+  </action>
+  <action name="actionExtractIterations" >
+   <property name="text" >
+    <string>Extract Iterations...</string>
+   </property>
+  </action>
+  <action name="actionThinIterations" >
+   <property name="text" >
+    <string>Thin Iterations...</string>
+   </property>
+  </action>
+  <action name="actionShow_node_ids" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Show node ids</string>
+   </property>
+  </action>
+  <action name="actionVdfd" >
+   <property name="text" >
+    <string>vdfd</string>
+   </property>
+  </action>
+  <action name="actionNameFormatm1" >
+	  <property name="text" >
+		  <string>Number only</string>
+	  </property>
+	  <property name="checkable" >
+		  <bool>true</bool>
+	  </property>
+	  <property name="checked" >
+		  <bool>false</bool>
+	  </property>
+  </action>
+  <action name="actionNameFormat0" >
+	  <property name="text" >
+		  <string>Unformatted</string>
+	  </property>
+	  <property name="checkable" >
+		  <bool>true</bool>
+	  </property>
+	  <property name="checked" >
+		  <bool>true</bool>
+	  </property>
+  </action>
+  <action name="actionNameFormat1" >
+	  <property name="text" >
+		  <string>Mauve Format (... + Name) </string>
+	  </property>
+	  <property name="checkable" >
+		  <bool>true</bool>
+   	  </property>
+	  <property name="checked" >
+		  <bool>false</bool>
+	  </property>
+  </action>
+  <action name="actionNameFormat2" >
+	  <property name="text" >
+		  <string>Mauve Format (... + Name + .extension) </string>
+	  </property>
+	  <property name="checkable" >
+		  <bool>true</bool>
+   	  </property>
+	  <property name="checked" >
+		  <bool>false</bool>
+	  </property>
+  </action>
+  <action name="actionAll_genes" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="checked" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>All genes</string>
+   </property>
+  </action>
+  <action name="actionOnly_one_gene" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Only one gene...</string>
+   </property>
+  </action>
+  <action name="actionAll_iterations" >
+   <property name="text" >
+    <string>All iterations</string>
+   </property>
+  </action>
+  <action name="actionDistribution_of_starting_points" >
+   <property name="text" >
+    <string>Distribution along the genome</string>
+   </property>
+  </action>
+  <action name="actionDistribution_of_ending_points" >
+   <property name="text" >
+    <string>Distribution of ending points</string>
+   </property>
+  </action>
+  <action name="actionRecombination" >
+   <property name="text" >
+    <string>Recombination</string>
+   </property>
+  </action>
+  <action name="actionRelRecombination" >
+   <property name="text" >
+    <string>Weighted Recombination</string>
+   </property>
+  </action>
+  <action name="actionStarting_points" >
+   <property name="text" >
+    <string>Starting points</string>
+   </property>
+  </action>
+  <action name="actionEnding_points" >
+   <property name="text" >
+    <string>Ending points</string>
+   </property>
+  </action>
+  <action name="actionSave_movie" >
+   <property name="text" >
+    <string>Save movie...</string>
+   </property>
+  </action>
+  <action name="actionToggleView" >
+	  <property name="text" >
+		  <string>Toggle recombination drawing style</string>
+	  </property>
+  </action>
+  <action name="actionShowCF" >
+	  <property name="text" >
+		  <string>Show proportions in ClonalFrame on tree</string>
+	  </property>
+  </action>
+  <action name="actionDeparture_arrival_density" >
+   <property name="text" >
+    <string>Departure/arrival density</string>
+   </property>
+  </action>
+  <action name="actionMajority_rule_Consensus" >
+   <property name="text" >
+    <string>Compute raw</string>
+   </property>
+  </action>
+  <action name="actionRelative_Departure_Arrival_density" >
+   <property name="text" >
+    <string>Recombination Distance Weighted Density</string>
+   </property>
+  </action>
+  <action name="action61" >
+   <property name="text" >
+    <string>Trajectory</string>
+   </property>
+  </action>
+  <action name="action62" >
+   <property name="text" >
+    <string>Histogram</string>
+   </property>
+  </action>
+  <action name="action71" >
+   <property name="text" >
+    <string>Trajectory</string>
+   </property>
+  </action>
+  <action name="action72" >
+   <property name="text" >
+    <string>Histogram</string>
+   </property>
+  </action>
+  <action name="actionScale_up" >
+   <property name="text" >
+    <string>Scale up</string>
+   </property>
+   <property name="shortcut" >
+    <string>+</string>
+   </property>
+  </action>
+  <action name="actionScale_down" >
+   <property name="text" >
+    <string>Scale down</string>
+   </property>
+   <property name="shortcut" >
+    <string>-</string>
+   </property>
+  </action>
+  <action name="actionExport_as_Tracer_file" >
+   <property name="text" >
+    <string>Export in Tracer format...</string>
+   </property>
+  </action>
+  <action name="actionExport_in_CSV_format" >
+   <property name="text" >
+    <string>Export in CSV format...</string>
+   </property>
+  </action>
+  <action name="actionSave_tree_to_Newick_file" >
+   <property name="text" >
+    <string>Save tree to Newick file...</string>
+   </property>
+  </action>
+  <action name="actionSave_trees_to_Nexus_file" >
+   <property name="text" >
+    <string>Save all clonal trees to Nexus file...</string>
+   </property>
+  </action>
+  <action name="actionTime_scale_up" >
+   <property name="text" >
+    <string>Time scale up</string>
+   </property>
+   <property name="shortcut" >
+    <string>PgUp</string>
+   </property>
+  </action>
+  <action name="actionTime_scale_down" >
+   <property name="text" >
+    <string>Time scale down</string>
+   </property>
+   <property name="shortcut" >
+    <string>PgDown</string>
+   </property>
+  </action>
+  <action name="actionMajority_rule_Density" >
+   <property name="text" >
+    <string>Majority-rule Density</string>
+   </property>
+  </action>
+  <action name="action81" >
+   <property name="text" >
+    <string>Trajectory</string>
+   </property>
+  </action>
+  <action name="action82" >
+   <property name="text" >
+    <string>Histogram</string>
+   </property>
+  </action>
+  <action name="action91" >
+   <property name="text" >
+    <string>Trajectory</string>
+   </property>
+  </action>
+  <action name="action92" >
+   <property name="text" >
+    <string>Histogram</string>
+   </property>
+  </action>
+  <action name="actionMajority_rule_consensus_of_trees" >
+   <property name="text" >
+    <string>Majority-rule consensus of trees</string>
+   </property>
+  </action>
+  <action name="actionExtended_consensus_of_trees" >
+   <property name="text" >
+    <string>Extended consensus of trees</string>
+   </property>
+  </action>
+  <action name="actionA1" >
+   <property name="text" >
+    <string>Trajectory</string>
+   </property>
+  </action>
+  <action name="actionA2" >
+   <property name="text" >
+    <string>Histogram</string>
+   </property>
+  </action>
+  <action name="actionB1" >
+   <property name="text" >
+    <string>Trajectory</string>
+   </property>
+  </action>
+  <action name="actionB2" >
+   <property name="text" >
+    <string>Histogram</string>
+   </property>
+  </action>
+  <action name="actionChange_scale" >
+   <property name="text" >
+    <string>Change scale...</string>
+   </property>
+  </action>
+  <action name="actionColour_density_plot" >
+   <property name="text" >
+    <string>Colour density plot</string>
+   </property>
+  </action>
+  <action name="actionHeat_map" >
+   <property name="text" >
+    <string>Heat map</string>
+   </property>
+  </action>
+  <action name="actionPd_map" >
+   <property name="text" >
+    <string>Pairwise Distances Recombination map</string>
+   </property>
+  </action>
+  <action name="actionPheat_map_rel" >
+   <property name="text" >
+    <string>Pairwise Recombination Rate map</string>
+   </property>
+  </action>
+  <action name="actionPheat_map" >
+   <property name="text" >
+    <string>Pairwise Recombination map (SLOW!)</string>
+   </property>
+  </action>
+  <action name="actionTest_convergence_of_trees" >
+   <property name="text" >
+    <string>Test convergence of trees...</string>
+   </property>
+  </action>
+  <action name="actionScore_against_true_tree" >
+   <property name="text" >
+    <string>Score against true tree...</string>
+   </property>
+  </action>
+  <action name="actionC1" >
+   <property name="text" >
+    <string>Trajectory</string>
+   </property>
+  </action>
+  <action name="actionC2" >
+   <property name="text" >
+    <string>Histogram</string>
+   </property>
+  </action>
+  <action name="actionD1" >
+   <property name="text" >
+    <string>Trajectory</string>
+   </property>
+  </action>
+  <action name="actionD2" >
+   <property name="text" >
+    <string>Histogram</string>
+   </property>
+  </action>
+  <action name="actionNext_site" >
+   <property name="text" >
+    <string>Next site</string>
+   </property>
+   <property name="shortcut" >
+    <string>+</string>
+   </property>
+  </action>
+  <action name="actionPrev_site" >
+   <property name="text" >
+    <string>Prev site</string>
+   </property>
+   <property name="shortcut" >
+    <string>-</string>
+   </property>
+  </action>
+  <action name="actionSet_cutoff" >
+   <property name="text" >
+    <string>Set cutoff...</string>
+   </property>
+  </action>
+  <action name="actionJump_to_site" >
+   <property name="text" >
+    <string>Jump to site...</string>
+   </property>
+  </action>
+  <action name="actionExport_movie" >
+   <property name="text" >
+    <string>Export movie...</string>
+   </property>
+  </action>
+  <action name="actionExport_CSV" >
+   <property name="text" >
+    <string>Export to CSV...</string>
+   </property>
+  </action>
+  <action name="actionExport_to_Artemis" >
+   <property name="text" >
+    <string>Export to Artemis...</string>
+   </property>
+  </action>
+  <action name="actionCompute_prior_corrected" >
+   <property name="text" >
+    <string>Compute prior corrected</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
