@@ -6,4 +6,4 @@ Bacteria, unlike us, can reproduce on their own. They do however have mechanisms
 
 = Current status =
 
-A beta version of ClonalOrigin is available for download.
+ClonalOrigin v0.1 was released on Sept. 23rd, 2010!  Please see the wiki section for build and usage instructions.
