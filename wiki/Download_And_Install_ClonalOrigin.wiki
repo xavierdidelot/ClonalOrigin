@@ -21,6 +21,12 @@ cd clonalorigin/warg
 ./configure --prefix=$HOME
 }}}
 
+Or if you prefer the qmake manager:
+{{{
+cd clonalorigin/warg
+qmake
+}}}
+
 == Step 3. Build and install ClonalOrigin  ==
 
 {{{
@@ -30,7 +36,13 @@ make install
 
 == Optional Step 4. Build and install the graphical interface  ==
 
-Forthcoming.
+{{{
+cd clonalorigin/gui
+qmake
+make
+}}}
+
+and you should get an executable file called gui (Linux), gui.exe (Windows) or gui.app (MacOS). 
 
 ----
 
