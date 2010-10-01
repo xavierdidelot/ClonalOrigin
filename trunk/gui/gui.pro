@@ -42,6 +42,7 @@ SOURCES = mainwindowimpl.cpp \
  ../warg/src/moveageclonal.cpp \
  ../warg/src/movescaletree.cpp \
  ../warg/src/moveregraftclonal.cpp \
+ ../warg/src/movegreedytree.cpp \
  ../warg/src/mpiutils.cpp \
  colouredimpl.cpp \
  pdimpl.cpp \
@@ -80,6 +81,7 @@ HEADERS = mainwindowimpl.h \
  ../warg/src/moveageclonal.h \
  ../warg/src/movescaletree.h \
  ../warg/src/moveregraftclonal.h \
+ ../warg/src/movegreedytree.h \
  ../warg/src/mpiutils.h \
  colouredimpl.h \
  pdimpl.h \
