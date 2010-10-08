@@ -14,8 +14,8 @@ Required software:
   * progressiveMauve - http://gel.ahabs.wisc.edu/mauve/snapshots
   * stripSubsetLCBs, available from other programs link at - http://gel.ahabs.wisc.edu/mauve/snapshots
   * addUnalignedIntervals, also from http://gel.ahabs.wisc.edu/mauve/snapshots
-  * ClonalFrame, from 
-  * ClonalOrigin, from 
+  * ClonalFrame - http://www.xavierdidelot.xtreemhost.com/clonalframe.htm
+  * ClonalOrigin - cf. http://code.google.com/p/clonalorigin/wiki/Download_And_Install_ClonalOrigin
 
 The above programs need to be downloaded, uncompressed, made executable, and installed to a directory in the binary PATH for your system.
 
@@ -46,6 +46,9 @@ The above commands start three separate ClonalFrame runs in parallel on the core
 A fully resolved consensus tree from ClonalFrame must be extracted and the taxa renumbered to start at 0 instead of 1.
 
 == Split alignment into one file per block ==
+{{{
+csplit -ks -f core_alignment.xmfa. core_alignment.xmfa '/=/1' {1000000} 2> /dev/null
+}}}
 
 == Run ClonalOrigin on each alignment block ==
 {{{
@@ -88,11 +91,14 @@ You will need to invent creative ways to summarize and make inference from the r
 
 Of course you will eventually write a paper, and probably publish it in a respectable open-access journal.  When you do, be sure to cite the following tools that facilitated your analysis:
 
+Darling AE, Mau B, Blatter F, Perna NT (2004) Mauve: multiple alignment of conserved genomic sequence with rearrangements. Genome Research 14(7):1394-1403
+http://www.genome.org/cgi/content/full/14/7/1394
+
 Darling AE, Mau B, Perna NT (2010) progressiveMauve: Multiple Genome Alignment with Gene Gain, Loss and Rearrangement. PLoS ONE 5(6): e11147
 http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0011147
 
-ClonalFrame paper 
+Didelot X, Falush D (2007) Inference of bacterial microevolution using multilocus sequence data. Genetics 175:1251-1266 
+http://www.genetics.org/cgi/content/abstract/175/3/1251 
 
-ClonalOrigin paper
-
-Original Mauve paper.
+Didelot X, Lawson D, Darling A, Falush D (2010) Inference of homologous recombination in bacteria using whole genome sequences. Genetics doi:10.1534/genetics.110.120121 
+http://www.genetics.org/cgi/content/abstract/genetics.110.120121v1
