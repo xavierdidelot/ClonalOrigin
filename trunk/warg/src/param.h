@@ -153,12 +153,12 @@ public:
 	vector<int> * b=data->getBlocks();
 	int nsites=0, nedges=0;
 	for (int i=0;i<rectree->numRecEdge();i++){
-	  int j=0;
+	  unsigned j=0;
 	  int ss=1,sf=1;
 	  while(j<b->size()){
-		if(b->at(j)==rectree->getEdge(i)->getStart()) ss=0;
-		if(b->at(j)==rectree->getEdge(i)->getEnd()) sf=0;
- 		if(b->at(j)>=rectree->getEdge(i)->getEnd())j=b->size();
+		if((unsigned)b->at(j)==rectree->getEdge(i)->getStart()) ss=0;
+		if((unsigned)b->at(j)==rectree->getEdge(i)->getEnd()) sf=0;
+ 		if((unsigned)b->at(j)>=rectree->getEdge(i)->getEnd())j=b->size();
 		j++;
 	  }
 	  nedges+=ss+sf;
