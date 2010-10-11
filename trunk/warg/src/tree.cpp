@@ -76,10 +76,15 @@ namespace weakarg {
 	// check whether the smallest id is 0 or some other number.
 	int idbase = (std::numeric_limits<int>::max)();
 	for (unsigned int i=0;i<all.size();i++) {
-		if(all[i]->getId()<idbase)
+		if(all[i]->getId()<idbase && all[i]->getId() >= 0)
 			idbase = all[i]->getId();
 	}
 	if(idbase > (int)all.size()||idbase<0)	idbase = 0;
+	for (unsigned int i=0;i<all.size();i++) {
+		if (all.at(i)->getId()!=-1){
+			all.at(i)->setId(all.at(i)->getId()-idbase);
+		}
+	}
       for (unsigned int i=0;i<all.size();i++) {
           if (all.at(i)->getId()==-1) {
               int idnew=0;
@@ -88,7 +93,7 @@ namespace weakarg {
                   idnew++;
               all.at(i)->setId(idnew);
             }
-          nodes.at(all.at(i)->getId()-idbase)=all.at(i);
+          nodes.at(all.at(i)->getId())=all.at(i);
         }
       int incomcounts=0;
       for (unsigned int i=n;i<nodes.size();i++) {
