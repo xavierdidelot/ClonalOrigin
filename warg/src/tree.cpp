@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include <stack>
+#include <limits>
 
 using namespace std;
 namespace weakarg {
@@ -72,6 +73,13 @@ namespace weakarg {
       //Create list of nodes ordered by age
       nodes=vector<Node*>(n+n-1);
       // This needs to be changed in order to accept newick files with labels not from 0:(n-1)
+	// check whether the smallest id is 0 or some other number.
+	int idbase = (std::numeric_limits<int>::max)();
+	for (unsigned int i=0;i<all.size();i++) {
+		if(all[i]->getId()<idbase)
+			idbase = all[i]->getId();
+	}
+	if(idbase > (int)all.size()||idbase<0)	idbase = 0;
       for (unsigned int i=0;i<all.size();i++) {
           if (all.at(i)->getId()==-1) {
               int idnew=0;
@@ -80,7 +88,7 @@ namespace weakarg {
                   idnew++;
               all.at(i)->setId(idnew);
             }
-          nodes.at(all.at(i)->getId())=all.at(i);
+          nodes.at(all.at(i)->getId()-idbase)=all.at(i);
         }
       int incomcounts=0;
       for (unsigned int i=n;i<nodes.size();i++) {
