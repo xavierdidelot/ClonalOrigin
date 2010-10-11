@@ -43,7 +43,12 @@ The above commands start three separate ClonalFrame runs in parallel on the core
 
 == Convert clonal genealogy to ClonalOrigin format ==
 
-A fully resolved consensus tree from ClonalFrame must be extracted and the taxa renumbered to start at 0 instead of 1.
+Check the output from the three ClonalFrame runs to ensure they have consistent topology and the consensus trees are fully resolved.  This can be checked using the ClonalFrame GUI.
+
+Assuming the ClonalFrame run produced a fully resolved consensus tree, that tree can be extracted from the ClonalFrame output with a command like the following:
+{{{
+getClonalTree core_clonalframe.out.1 clonaltree.nwk
+}}}
 
 == Split alignment into one file per block ==
 {{{
