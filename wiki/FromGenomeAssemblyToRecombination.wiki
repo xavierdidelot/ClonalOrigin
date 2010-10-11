@@ -61,8 +61,7 @@ Where this command must be run once on each of the alignment blocks, and N shoul
 #!/bin/sh
 #$ -cwd
 #$ -t 1-157
-setenv WORKDIR /home/koadman/sulfo/final12
-mkdir -p $WORKDIR
+setenv WORKDIR `pwd`
 setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${HOME}/lib
 ./warg -a 1,1,0.1,1,1,1,1,1,0,0,0 -x 1000000 -y 1000000 -z 10000 clonaltree.nwk core_alignment.xmfa.$SGE_TASK_ID $WORKDIR/core_co.phase2.$SGE_TASK_ID.xml
 bzip2 $WORKDIR/core_co.phase2.$SGE_TASK_ID.xml
