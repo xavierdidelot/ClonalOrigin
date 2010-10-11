@@ -11,5 +11,5 @@ profile:
 CLEANFILES = src/*.gcda src/*.gcno
 
 
-SUBDIRS = src
-EXTRA_DIST = convert.pl rescale.pl weakarg.pro
+SUBDIRS = src scripts
+EXTRA_DIST = weakarg.pro
