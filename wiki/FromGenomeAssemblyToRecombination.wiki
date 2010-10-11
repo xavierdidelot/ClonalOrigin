@@ -60,15 +60,17 @@ Where this command must be run once on each of the alignment blocks, and N shoul
 {{{
 #!/bin/sh
 #$ -cwd
+#$ -S /bin/bash
 #$ -t 1-157
-setenv WORKDIR `pwd`
-setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${HOME}/lib
-./warg -a 1,1,0.1,1,1,1,1,1,0,0,0 -x 1000000 -y 1000000 -z 10000 clonaltree.nwk core_alignment.xmfa.$SGE_TASK_ID $WORKDIR/core_co.phase2.$SGE_TASK_ID.xml
+export WORKDIR=/state/partition1/warg
+mkdir -p $WORKDIR
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/lib
+warg -a 1,1,0.1,1,1,1,1,1,0,0,0 -x 1000000 -y 1000000 -z 10000 clonaltree.nwk core_alignment.xmfa.$SGE_TASK_ID $WORKDIR/core_co.phase2.$SGE_TASK_ID.xml
 bzip2 $WORKDIR/core_co.phase2.$SGE_TASK_ID.xml
 mv $WORKDIR/core_co.phase2.$SGE_TASK_ID.xml.bz2 .
 }}}
 
-The -t 1-157 line will have to be changed so to range from 1 to the number of blocks for your dataset (e.g. change the 157).  This script can can be submitted with qsub and will start one job with one task for each of the blocks.
+The -t 1-157 line will have to be changed so to range from 1 to the number of blocks for your dataset (e.g. change the 157).  The following line where the WORKDIR variable is set will probably also need to change to reflect a path to node-local scratch space.  Usually node-local storage is at /state/partition1 on a ROCKS cluster, which is assumed here.  /tmp or $TMPDIR might also work.  This script can can be submitted with qsub and will start one job with one task for each of the blocks.
 
 == Get estimates of population evolution parameters ==
 
