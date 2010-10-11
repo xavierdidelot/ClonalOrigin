@@ -47,7 +47,7 @@ A fully resolved consensus tree from ClonalFrame must be extracted and the taxa 
 
 == Split alignment into one file per block ==
 {{{
-csplit -ks -f core_alignment.xmfa. core_alignment.xmfa '/=/1' {1000000} 2> /dev/null
+blocksplit.pl core_alignment.xmfa
 }}}
 
 == Run ClonalOrigin on each alignment block ==
@@ -55,7 +55,21 @@ csplit -ks -f core_alignment.xmfa. core_alignment.xmfa '/=/1' {1000000} 2> /dev/
 warg -a 1,1,0.1,1,1,1,1,1,0,0,0 -x 1000000 -y 1000000 -z 10000 clonaltree.nwk core_alignment.xmfa.N core_co.phase2.N.xml
 }}}
 
-Where this command must be run once on each of the alignment blocks, and N should be replaced with the block number.  Farming these jobs out on a compute cluster is highly recommended.
+Where this command must be run once on each of the alignment blocks, and N should be replaced with the block number.  Farming these jobs out on a compute cluster is highly recommended.  On clusters where jobs are managed with Sun Grid Engine (SGE) the following script can be used to run the jobs:
+
+{{{
+#!/bin/sh
+#$ -cwd
+#$ -t 1-157
+setenv WORKDIR /home/koadman/sulfo/final12
+mkdir -p $WORKDIR
+setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${HOME}/lib
+./warg -a 1,1,0.1,1,1,1,1,1,0,0,0 -x 1000000 -y 1000000 -z 10000 clonaltree.nwk core_alignment.xmfa.$SGE_TASK_ID $WORKDIR/core_co.phase2.$SGE_TASK_ID.xml
+bzip2 $WORKDIR/core_co.phase2.$SGE_TASK_ID.xml
+mv $WORKDIR/core_co.phase2.$SGE_TASK_ID.xml.bz2 .
+}}}
+
+The -t 1-157 line will have to be changed so to range from 1 to the number of blocks for your dataset (e.g. change the 157).  This script can can be submitted with qsub and will start one job with one task for each of the blocks.
 
 == Get estimates of population evolution parameters ==
 
