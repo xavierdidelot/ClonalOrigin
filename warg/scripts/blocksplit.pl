@@ -19,3 +19,6 @@ while( my $line = <INFILE> )
 	}
 }
 close OUTFILE;
+# last output file is extra
+`rm $curoutfile`;
+
