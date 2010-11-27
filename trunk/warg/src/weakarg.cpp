@@ -110,7 +110,7 @@ int main(int argc, char *argv[])
     vector<string> inputfiles;
     initmpi(argc,argv);
 	makerng(true);
-    optind=0;
+    //optind=0;
     bool upgma=false;
     int c;
     char * pch;
