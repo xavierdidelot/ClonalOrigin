@@ -88,7 +88,7 @@ computeMedians.pl *.xml
 == Run ClonalOrigin with global parameters ==
 
 {{{
-warg -x 1000000 -y 20000000 -z 200000 -D 123456 -T s7890 -R s66666 clonaltree.nwk core_alignment.xmfa.N core_co.phase3.N.xml
+warg -a 1,1,0.1,1,1,1,1,1,0,0,0 -x 1000000 -y 20000000 -z 200000 -D 123456 -T s7890 -R s66666 clonaltree.nwk core_alignment.xmfa.N core_co.phase3.N.xml
 }}}
 
 Again, this command must be run at least once for each block, and N needs to be replaced with the block number.  Also, the values 123456, 7890, and 66666 must be replaced with the global parameter estimates for Delta, Theta, and Rho from the previous step.
