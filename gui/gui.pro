@@ -9,7 +9,7 @@ CONFIG += qt \
  console \
  release \
  qdbus
-LIBS = -lgslcblas -lgsl
+LIBS = -Wl,--no-as-needed -lgslcblas -lgsl
 SOURCES = mainwindowimpl.cpp \
  gui.cpp \
  plotimpl.cpp \

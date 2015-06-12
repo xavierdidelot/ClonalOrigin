@@ -806,7 +806,7 @@ void MainWindowImpl::on_actionScore_against_true_tree_activated(QString qstr,QSt
   loadIteration();
 }
 
-void MainWindowImpl::displayStatus(QString::QString str)
+void MainWindowImpl::displayStatus(QString str)
 {
   statusBar()->showMessage(tr("Sample ")+QString::number(outputFile->getCurIt()+1)
   +tr(", Iteration ")+QString::number(param->getNumber())+(", Timescale=")+QString::number(param->getTimeScale())+tr(" ") + str);

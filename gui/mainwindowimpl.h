@@ -123,6 +123,6 @@ class MainWindowImpl : public QMainWindow, public Ui::MainWindow {
       void paintEvent(QPaintEvent*);
       void loadIteration(bool startOver=false);
       void mouseDoubleClickEvent ( QMouseEvent * event );
-      void displayStatus(QString::QString str=tr(""));
+      void displayStatus(QString str=tr(""));
   };
 #endif
