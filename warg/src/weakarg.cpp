@@ -2,6 +2,7 @@
 #include "config.h"
 #endif
 
+#include <getopt.h>
 #include "rectree.h"
 #include "param.h"
 #include "move.h"

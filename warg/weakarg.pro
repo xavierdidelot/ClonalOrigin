@@ -1,6 +1,6 @@
 TEMPLATE = app
 CONFIG += release
-LIBS = -lgslcblas -lgsl
+LIBS = -Wl,--no-as-needed -lgslcblas -lgsl
 QMAKE_CXXFLAGS = -g -funroll-loops
 SOURCES = src/data.cpp \
  src/rng.cpp \

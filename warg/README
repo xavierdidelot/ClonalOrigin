@@ -1,4 +1,4 @@
-If you have checked this code out of subversion, first run ./autogen.sh
+If you have checked this code out of github, first run ./autogen.sh
 To build the code, run:
 
 ./configure
